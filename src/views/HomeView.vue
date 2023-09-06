@@ -1,13 +1,13 @@
 <template>
-  <div class="flex h-screen">
-    <div class="flex justify-content-center align-items-center relative" style="width:60%">
-      <div :class="[currentSection, 'flex flex-grow-1 left-image absolute w-full']"></div>
-      <div class="pannel-title">
-        <p class="title">Floriane & Florent</p>
-        <p style="color:white">We can't wait to share our special day with you. Help us capture our wedding with Joy.</p>
+  <div class="flex h-screen grid grid-nogutter">
+    <div class="flex h-screen justify-content-center align-items-center md:fixed  col-12 md:col-7">
+      <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
+      <div class="pannel-title gap-4">
+        <p class="title text-7xl text-center font-bold">Floriane & Florent</p>
+        <p class="font-bold text-xl text-white">Nous sommes impatients de partager notre journée avec vous. Aidez-nous à immortaliser notre mariage avec joie.</p>
       </div>
     </div>
-    <div class="right overflow-auto" @scroll="scrollHandler">
+    <div class="flex col-12 md:col-5 flex-column ml-auto overflow-auto" @scroll="scrollHandler">
       <FirstView></FirstView>
       <LocationView></LocationView>
       <ContactView></ContactView>
@@ -19,20 +19,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import LocationView from './LocationView.vue'
 import ContactView from './ContactView.vue'
 import FormView from './FormView.vue'
 import AccomodationView from './AccomodationView.vue'
 import ProgramView from './ProgramView.vue'
 import FirstView from './FirstView.vue'
-import Navigation from '@/components/Navigation.vue'
 
-const weddingDate = new Date('2024-06-29T00:00:00')
-const days = ref(0)
-const hours = ref(0)
-const minutes = ref(0)
-const seconds = ref(0)
 const currentSection = ref('')
 
 const scrollToSection = (sectionId: string) => {
@@ -60,12 +54,17 @@ const scrollHandler = () => {
 
 onMounted(() => {
   currentSection.value = 'first'
+  window.addEventListener('scroll', scrollHandler)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', scrollHandler)
 })
 </script>
 
 <style>
 .title {
-  font-family: GreatVibes-Regular;
+  font-family: Hermitage-Regular;
   font-weight: 400;
   font-size: 4.5rem;
   line-height: 1.16;
@@ -76,14 +75,8 @@ onMounted(() => {
 
 .right {
   height: 100vh;
-  width: 40%;
 }
 
-.section {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 
 html {
   scroll-behavior: smooth;
@@ -103,19 +96,19 @@ html {
 
 .location.left-image {
   background-image: url('../assets/20230729_174442.jpg');
-  background-position: center 45%;
+  background-position: 60% 75%;
 }
 
 .contact.left-image {
   background-image: url('../assets/20230729_171234.jpg');
-  background-position: center 38%;
+  background-position: center center;
 }
 
 .pannel-title {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  padding: 10% 20% 3% 10%;
+  padding: 10% 20% 11% 10%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.306) 13%, rgba(0, 0, 0, 0.228) 26%, rgba(0, 0, 0, 0.164) 37%, rgba(0, 0, 0, 0.112) 48%, rgba(0, 0, 0, 0.07) 59%, rgba(0, 0, 0, 0.043) 68%, rgba(0, 0, 0, 0.022) 77%, rgba(0, 0, 0, 0.009) 85%, rgba(0, 0, 0, 0.002) 92%, rgba(0, 0, 0, 0) 100%);
   width: 100%;
   height: 75%;
@@ -123,5 +116,11 @@ html {
   bottom: 0px;
   align-items: flex-start;
   z-index: 2;
+}
+
+@media only screen and (max-height: 600px) {
+  .pannel-title {
+    padding: 0 20% 11% 10%;
+  }
 }
 </style>

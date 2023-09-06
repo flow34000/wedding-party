@@ -1,13 +1,18 @@
 <template>
-  <div id="first" class="section justify-content-between">
-    <img src="../assets/leaf.webp" class="top-leaf" />
+  <div id="first" class="section">
+    <div class="bg-1">
+      <div></div>
+    </div>
+    <div class="bg-bottom">
+      <div></div>
+    </div>
+    <img src="../assets/leaf.webp" class="top-leaf absolute top-0" />
     <div class="flex align-items-center gap-3 flex-column content text-center">
       <p class="uppercase">samedi 29 juin 2024</p>
       <p class="uppercase">Domaine des Coteaux d'Or, Pouilly-le-Monial</p>
       <p class="uppercase">{{ days }} jours {{ hours }} heures {{ minutes }} minutes</p>
       <button class="flex">RSVP</button>
     </div>
-    <img src="../assets/bg.png" style="width:100%" />
   </div>
 </template>
 
@@ -44,5 +49,53 @@ onMounted(() => {
 .content {
   padding-right: 15%;
   padding-left: 15%;
+}
+
+.bg-1 {
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+}
+
+.bg-1:first-child {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-image: url('../assets/bg-back.webp');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.bg-bottom>div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: contain;
+  background-image: url('../assets/bg.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.bg-bottom {
+  left: 50%;
+  width: 100%;
+  bottom: 0;
+  height: auto;
+  position: absolute;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.bg-bottom:after {
+  width: 0;
+  content: ' ';
+  display: block;
+  padding-top: 54.72826086956522%;
 }
 </style>
