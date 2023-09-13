@@ -1,7 +1,7 @@
 <template>
-  <div id="contact" class="section contact-section">
-    <h2>Nous contacter</h2>
-    <div class="contact-details">
+  <div id="contact" class="section">
+    <h1 class="text-center">Nous contacter</h1>
+    <div class="flex flex-column section-content">
       <div class="contact-info">
         <h3>Floriane</h3>
         <p>Téléphone : Numéro de téléphone...</p>

@@ -8,16 +8,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },
-    {
-      path: '/rsvp',
-      name: 'rsvp',
-      component: () => import('../views/FormView.vue')
-    },
-    {
-      path: '/accommodation',
-      name: 'accommodation',
-      component: () => import('../views/AccomodationView.vue')
     }
   ],
   scrollBehavior(to, from, savedPosition) {

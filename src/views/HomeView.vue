@@ -9,37 +9,30 @@
     </div>
     <div class="flex col-12 md:col-5 flex-column ml-auto overflow-auto" @scroll="scrollHandler">
       <FirstView></FirstView>
-      <LocationView></LocationView>
-      <ContactView></ContactView>
-      <FormView></FormView>
-      <AccomodationView></AccomodationView>
+      <StoryView></StoryView>
       <ProgramView></ProgramView>
+      <LocationView></LocationView>
+      <FormView></FormView>
+      <PhotoView></PhotoView>
+      <ContactView></ContactView>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import LocationView from './LocationView.vue'
-import ContactView from './ContactView.vue'
-import FormView from './FormView.vue'
-import AccomodationView from './AccomodationView.vue'
-import ProgramView from './ProgramView.vue'
-import FirstView from './FirstView.vue'
+import FirstView from '../components/FirstView.vue'
+import StoryView from '../components/StoryView.vue'
+import ProgramView from '../components/ProgramView.vue'
+import LocationView from '../components/LocationView.vue'
+import FormView from '../components/FormView.vue'
+import PhotoView from '../components/PhotoView.vue'
+import ContactView from '../components/ContactView.vue'
 
 const currentSection = ref('')
 
-const scrollToSection = (sectionId: string) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    //gsap.to(window, { duration: 1, scrollTo: section });
-    // Changer l'image en fonction de la section
-    currentSection.value = `IMAGE FOR ${sectionId}`;
-  }
-};
-
 const scrollHandler = () => {
-  const sections = ['first', 'location', 'contact', 'rsvp', 'accomodation', 'program'];
+  const sections = ['first', 'program', 'location', 'rsvp', 'photos', 'contact'];
   let visibleSection = '';
   for (const sectionId of sections) {
     const section = document.getElementById(sectionId);

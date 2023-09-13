@@ -1,5 +1,5 @@
 <template>
-  <div id="first" class="first-section">
+  <div id="first" class="section align-items-center">
     <div class="bg-1">
       <div></div>
     </div>

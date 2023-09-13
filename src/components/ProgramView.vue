@@ -1,7 +1,7 @@
 <template>
-  <div class="section program-section" id="program">
-    <h2>Programme du mariage</h2>
-    <div class="timeline">
+  <div class="section" id="program">
+    <h1 class="text-center">Le programme</h1>
+    <div class="flex flex-column section-content">
       <div v-for="(event, index) in events" :key="index" class="timeline-event">
         <div class="event-logo">
           <!-- Add event logo image here -->
