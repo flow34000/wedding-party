@@ -3,7 +3,7 @@
     <div class="flex h-screen justify-content-center align-items-center md:fixed  col-12 md:col-7">
       <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
-        <p class="title text-7xl text-center font-bold">Floriane & Florent</p>
+        <p class="title text-center font-bold">Floriane & Florent</p>
         <p class="font-bold text-xl text-white">Nous sommes impatients de partager notre journée avec vous. Aidez-nous à immortaliser notre mariage avec joie.</p>
       </div>
     </div>
@@ -64,9 +64,9 @@ onBeforeUnmount(() => {
 
 <style>
 .title {
-  font-family: Hermitage-Regular;
+  font-family: MoonTime-Regular;
   font-weight: 400;
-  font-size: 4.5rem;
+  font-size: 7rem;
   line-height: 1.16;
   text-transform: none;
   letter-spacing: 0em;
@@ -119,8 +119,14 @@ html {
 }
 
 @media only screen and (max-height: 600px) {
-  .pannel-title {
-    padding: 0 20% 11% 10%;
+  .title {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 6rem;
   }
 }
 </style>

@@ -1,9 +1,14 @@
 @font-face {
-  font-family: GreatVibes-Regular;
-  src: url('fonts/GreatVibes-Regular.ttf');
+  font-family: MoonTime-Regular;
+  src: url('fonts/MoonTime-Regular.ttf');
 }
 
 @font-face {
-  font-family: Hermitage-Regular;
-  src: url('fonts/Hermitage-Regular.otf');
+  font-family: GlacialIndifference-Regular;
+  src: url('fonts/GlacialIndifference-Regular.otf');
+}
+
+@font-face {
+  font-family: CinzelDecorative-Regular;
+  src: url('fonts/CinzelDecorative-Regular.ttf');
 }

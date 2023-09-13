@@ -1,6 +1,9 @@
 @import './fonts.css';
- 
+
 body {
+  font-family: GlacialIndifference-Regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 0;
   margin: 0;
   background-color: white;
@@ -10,6 +13,15 @@ p {
 }
 .main-layout {
   min-height: 100vh;
+}
+
+.first-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  height: 100vh;
+  position: relative;
 }
 
 .section {

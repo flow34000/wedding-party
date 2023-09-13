@@ -1,5 +1,5 @@
 <template>
-  <div id="first" class="section">
+  <div id="first" class="first-section">
     <div class="bg-1">
       <div></div>
     </div>
@@ -7,11 +7,11 @@
       <div></div>
     </div>
     <img src="../assets/leaf.webp" class="top-leaf absolute top-0" />
-    <div class="flex align-items-center gap-3 flex-column content text-center">
-      <p class="uppercase">samedi 29 juin 2024</p>
-      <p class="uppercase">Domaine des Coteaux d'Or, Pouilly-le-Monial</p>
-      <p class="uppercase">{{ days }} jours {{ hours }} heures {{ minutes }} minutes</p>
-      <button class="flex">RSVP</button>
+    <div class="flex align-items-center gap-5 flex-column content text-center">
+      <p class="uppercase date">samedi<br /> 29 juin 2024</p>
+      <p class="uppercase location">Domaine des Coteaux d'Or, Pouilly-le-Monial</p>
+      <p class="uppercase ">{{ days }} jours {{ hours }} heures {{ minutes }} minutes</p>
+      <button class="flex mt-4">RSVP</button>
     </div>
   </div>
 </template>
@@ -49,6 +49,7 @@ onMounted(() => {
 .content {
   padding-right: 15%;
   padding-left: 15%;
+  margin-top: 8rem;
 }
 
 .bg-1 {
@@ -97,5 +98,24 @@ onMounted(() => {
   content: ' ';
   display: block;
   padding-top: 54.72826086956522%;
+}
+
+.date {
+  font-family: CinzelDecorative-Regular;
+  font-weight: 400;
+  white-space: pre-wrap;
+  text-transform: none;
+  letter-spacing: 0em;
+  line-height: 1.25;
+  font-size: 2rem;
+}
+
+.location {
+  font-family: CinzelDecorative-Regular;
+  font-weight: 400;
+  font-size: 1.625rem;
+  line-height: 1.25;
+  text-transform: none;
+  letter-spacing: 0em;
 }
 </style>
