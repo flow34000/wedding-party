@@ -57,7 +57,7 @@ onBeforeUnmount(() => {
 
 <style>
 .title {
-  font-family: MoonTime-Regular;
+  font-family: bartleen;
   font-weight: 400;
   font-size: 7rem;
   line-height: 1.16;
@@ -83,7 +83,7 @@ html {
 }
 
 .first.left-image {
-  background-image: url('../assets/20230729_174341.jpg');
+  background-image: url('src/assets/WA0016.jpg');
   background-position: center center;
 }
 

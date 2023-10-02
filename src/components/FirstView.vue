@@ -6,11 +6,11 @@
     <div class="bg-bottom">
       <div></div>
     </div>
-    <img src="../assets/leaf.webp" class="top-leaf absolute top-0" />
+    <img src="../assets/flowerstop.png" class="top-leaf absolute top-0" />
     <div class="flex align-items-center gap-5 flex-column content text-center">
-      <p class="uppercase date">samedi<br /> 29 juin 2024</p>
-      <p class="uppercase location">Domaine des Coteaux d'Or, Pouilly-le-Monial</p>
-      <p class="uppercase ">{{ days }} jours {{ hours }} heures {{ minutes }} minutes</p>
+      <p class="date">Samedi<br /> 29 juin 2024</p>
+      <p class="location">Domaine des Coteaux d'Or<br /> Pouilly-le-Monial</p>
+      <p class="uppercase">{{ days }} jours {{ hours }} heures {{ minutes }} minutes</p>
       <button class="flex mt-4">RSVP</button>
     </div>
   </div>
@@ -101,7 +101,7 @@ onMounted(() => {
 }
 
 .date {
-  font-family: CinzelDecorative-Regular;
+  font-family: bartleen;
   font-weight: 400;
   white-space: pre-wrap;
   text-transform: none;
@@ -111,7 +111,7 @@ onMounted(() => {
 }
 
 .location {
-  font-family: CinzelDecorative-Regular;
+  font-family: bartleen;
   font-weight: 400;
   font-size: 1.625rem;
   line-height: 1.25;
