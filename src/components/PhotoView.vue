@@ -1,7 +1,7 @@
 <template>
   <div class="section" id="photos">
     <h1 class="text-center">Les photos</h1>
-    <div class="flex section-content">Photo here</div>
+    <div class="flex section-content">Aidez nous à immortialiser ce moment avec nous. Poster ici les photos/Vidéos prises lors de cette journée. Des petits defis photos seront proposés sur chaque table, ne soyez pas timides!</div>
   </div>
 </template>
 

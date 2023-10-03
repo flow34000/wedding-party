@@ -2,15 +2,13 @@
   <div class="section" id="program">
     <h1 class="text-center">Le programme</h1>
     <div class="flex flex-column section-content">
-      <div v-for="(event, index) in events" :key="index" class="timeline-event">
-        <div class="event-logo">
-          <!-- Add event logo image here -->
-        </div>
-        <div class="event-details">
-          <h3>{{ event.time }}</h3>
-          <p>{{ event.description }}</p>
-        </div>
-      </div>
+      <p>La cérémonie civile se déroulera le vendredi 28 Juin à la mairie d'Irigny uniquement avec les témoins et les parents des mariés.</p>
+      
+      <p>Nous attendons tous les autres invités directement au domaine le samedi 29 Juin à partir de 16h.</p>
+      
+      <img src="../assets/programme.png" />
+      
+      <p> Pour plus d'informations pratiques sur le domaine des Coteaux d'Or, les hébergements et les baby-sitters, cliquez ici: </p>
     </div>
   </div>
 </template>

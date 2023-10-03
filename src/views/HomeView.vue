@@ -4,7 +4,7 @@
       <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
         <p class="title text-center font-bold">Floriane & Florent</p>
-        <p class="font-bold text-xl text-white">Nous sommes impatients de partager notre journée avec vous. Aidez-nous à immortaliser notre mariage avec joie.</p>
+        <p class="font-bold text-xl text-white">Nous sommes impatients de faire la fête avec vous!</p>
       </div>
     </div>
     <div class="flex col-12 md:col-5 flex-column ml-auto overflow-auto" @scroll="scrollHandler">
@@ -79,15 +79,33 @@ onBeforeUnmount(() => {
 }
 
 .location.left-image {
-  background-image: url('../assets/images/20230729_174442.jpg');
+  background-image: url('src/assets/P150646.jpg');
   background-position: 60% 75%;
 }
 
 .contact.left-image {
-  background-image: url('../assets/images/20230729_171234.jpg');
+  background-image: url('src/assets/family.jpg');
   background-position: center center;
 }
 
+.program.left-image {
+  background-image: url('src/assets/fiancailles.jpg');
+  background-position: 60% 75%;
+}
+
+.story.left-image {
+  background-image: url('src/assets/sunset.jpg');
+  background-position: 60% 75%;
+}
+.photos.left-image {
+  background-image: url('src/assets/beaujoview.jpg');
+  background-position: 60% 75%;
+}
+
+.rsvp.left-image {
+  background-image: url('src/assets/P174416.jpg');
+  background-position: 60% 75%;
+}
 .pannel-title {
   margin-top: auto;
   display: flex;
