@@ -1,5 +1,9 @@
 @import './fonts.css';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: GlacialIndifference-Regular;
   -webkit-font-smoothing: antialiased;
@@ -8,9 +12,11 @@ body {
   margin: 0;
   background-color: white;
 }
+
 p {
   margin: 0;
 }
+
 .main-layout {
   min-height: 100vh;
 }
@@ -26,6 +32,7 @@ p {
 .section-content {
   padding: 4rem 2rem;
 }
+
 h1 {
   font-family: CinzelDecorative-Regular;
   font-weight: 400;

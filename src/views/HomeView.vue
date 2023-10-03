@@ -32,7 +32,7 @@ import ContactView from '../components/ContactView.vue'
 const currentSection = ref('')
 
 const scrollHandler = () => {
-  const sections = ['first', 'program', 'location', 'rsvp', 'photos', 'contact'];
+  const sections = ['first', 'story', 'program', 'location', 'rsvp', 'photos', 'contact'];
   let visibleSection = '';
   for (const sectionId of sections) {
     const section = document.getElementById(sectionId);
@@ -66,15 +66,6 @@ onBeforeUnmount(() => {
   color: white
 }
 
-.right {
-  height: 100vh;
-}
-
-
-html {
-  scroll-behavior: smooth;
-}
-
 .left-image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -88,12 +79,12 @@ html {
 }
 
 .location.left-image {
-  background-image: url('../assets/20230729_174442.jpg');
+  background-image: url('../assets/images/20230729_174442.jpg');
   background-position: 60% 75%;
 }
 
 .contact.left-image {
-  background-image: url('../assets/20230729_171234.jpg');
+  background-image: url('../assets/images/20230729_171234.jpg');
   background-position: center center;
 }
 
