@@ -60,7 +60,7 @@
       <p class="font-bold">Nous mettrons à jour cette liste prochainement.</p>
       <p>Pour les plus téméraires, il sera aussi possible de planter une toile de tente en contrebas du domaine.</p>
       <div class="">
-        <img class="border-round w-full" src="../assets//domaine tentes.JPG" />
+        <img class="border-round w-full" src="../assets//domaine_tentes.JPG" />
       </div>
       <h2 class="text-center">Les baby-sitters</h2>
       <p> Nous avons l'obligation de prévoir des baby-sitters sur le domaine dès lors qu'il y a des enfants entre 3 et 13 ans.
