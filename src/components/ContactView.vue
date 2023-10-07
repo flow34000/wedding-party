@@ -5,12 +5,14 @@
       <div class="contact-info">
         <h3>Floriane</h3>
         <p>Téléphone : 0665161927</p>
-        <p>Email : <a href="mailto:lesflosemarient2024@gmail.com">floriane@example.com</a></p>
+        
       </div>
       <div class="contact-info">
         <h3>Florent</h3>
         <p>Téléphone : 0662166634</p>
-        <p>Email : <a href="mailto:lesflosemarient2024@example.com">florent@example.com</a></p>
+
+        
+        <p>Email : <a href="mailto:lesflosemarient2024@example.com">lesflosemarient2024@gmail.com</a></p>
       </div>
     </div>
   </div>

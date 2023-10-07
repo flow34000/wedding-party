@@ -4,7 +4,7 @@
       <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
         <p class="title text-center font-bold">Floriane & Florent</p>
-        <p class="font-bold text-xl text-white">Nous sommes impatients de faire la fête avec vous!</p>
+        <p class="font-bold text-xl text-white">Enfin on va se dire OUUUIIII !!!</p>
       </div>
     </div>
     <div class="flex col-12 md:col-5 flex-column ml-auto overflow-auto" @scroll="scrollHandler">
