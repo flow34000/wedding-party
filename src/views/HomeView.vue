@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
 .title {
   font-family: bartleen;
   font-weight: 400;
-  font-size: 7rem;
+  font-size: 5.25rem;
   line-height: 1.16;
   text-transform: none;
   letter-spacing: 0em;
@@ -78,9 +78,29 @@ onBeforeUnmount(() => {
   background-position: center center;
 }
 
+.story.left-image {
+  background-image: url('src/assets/sunset.jpg');
+  background-position: 40% 75%;
+}
+
+.program.left-image {
+  background-image: url('src/assets/fiancailles.jpg');
+  background-position: center center;
+}
+
 .location.left-image {
   background-image: url('src/assets/P150646.jpg');
-  background-position: 60% 75%;
+  background-position: 15% 75%;
+}
+
+.rsvp.left-image {
+  background-image: url('src/assets/P174416.jpg');
+  background-position: center center;
+}
+
+.photos.left-image {
+  background-image: url('src/assets/beaujoview.jpg');
+  background-position: 80% 75%;
 }
 
 .contact.left-image {
@@ -88,24 +108,6 @@ onBeforeUnmount(() => {
   background-position: center center;
 }
 
-.program.left-image {
-  background-image: url('src/assets/fiancailles.jpg');
-  background-position: 60% 75%;
-}
-
-.story.left-image {
-  background-image: url('src/assets/sunset.jpg');
-  background-position: 60% 75%;
-}
-.photos.left-image {
-  background-image: url('src/assets/beaujoview.jpg');
-  background-position: 60% 75%;
-}
-
-.rsvp.left-image {
-  background-image: url('src/assets/P174416.jpg');
-  background-position: 60% 75%;
-}
 .pannel-title {
   margin-top: auto;
   display: flex;
@@ -122,13 +124,17 @@ onBeforeUnmount(() => {
 
 @media only screen and (max-height: 600px) {
   .title {
-    font-size: 6rem;
+    font-size: 4rem;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .title {
-    font-size: 6rem;
+    font-size: 4rem;
+  }
+
+  .see-bottom {
+    display: none;
   }
 }
 </style>

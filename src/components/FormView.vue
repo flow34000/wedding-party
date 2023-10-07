@@ -1,21 +1,22 @@
 <template>
   <div id="rsvp" class="section">
+    <SectionTop></SectionTop>
     <h1 class="text-center">RSVP</h1>
     <div class="flex flex-column section-content gap-3">
-
-      <form @submit="submitRSVP0" class="flex flex-column gap-2" v-if="step === 0">
-        <p>Nous serions ravis de savoir si vous pouvez nous rejoindre ! Pensez à completer le formulaire ci-dessous avant le 29 Février 2024.</p>
+      <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
+      <form novalidate @submit.prevent="submitRSVP0" class="flex flex-column gap-2" v-if="step === 0">
+        <p>Nous serions ravis de savoir si vous pourez nous rejoindre ! Pensez à completer le formulaire ci-dessous avant le 29 Février 2024.</p>
         <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
         <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
         <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
         <Button type="submit" label="Suivant" />
       </form>
 
-      <form @submit="submitRSVP1" class="flex flex-column gap-2" v-if="step === 1">
-        <p class="font-bold text-center">Réponse pour {{ firstname }} {{ name }}</p>
-        <p>Pourrez-vous vous joindre à nous lors de notre mariage ? Veuillez répondre avant la date du 29 Février 2024.</p>
-        <Button label="Accepter avec joie" :outlined="confirm == null || confirm === false" @click="confirm = true" />
-        <Button label="Décliner à regret" :outlined="confirm == null || confirm === true" @click="confirm = false" />
+      <form novalidate @submit.prevent="submitRSVP1" class="flex flex-column gap-2" v-if="step === 1">
+        <p class="font-bold">Réponse pour {{ firstname }} {{ name }}</p>
+        <p>Serez-vous présent à notre mariage ? Veuillez répondre avant la date du 29 Février 2024.</p>
+        <Button label="Let's party !" :outlined="confirm == null || confirm === false" @click="confirm = true" />
+        <Button label="Je peux pas, j'ai poney !" :outlined="confirm == null || confirm === true" @click="confirm = false" />
         <!--  Accept -->
         <div class="formgrid grid" v-if="confirm === true">
           <div class="field col-12">
@@ -32,23 +33,27 @@
             </small>
           </div>
           <div class="field col-12">
-            <Button type="submit" label="Suivant" />
+            <Button type="submit" label="Suivant" class="w-full" />
           </div>
         </div>
         <!--  Decline -->
-        <div class="flex flex-column gap-2" v-if="confirm === false">
-          <p>Souhaitez-vous inclure une note à l'intention du couple ?</p>
-          <Textarea v-model="declineNote" autoResize rows="5" cols="30" />
-          <Button type="submit" label="Suivant" />
+        <div class="formgrid grid" v-if="confirm === false">
+          <div class="field col-12">
+            <label for="declineNote">Un petit mot pour les futurs mariés ?</label>
+            <Textarea id="declineNote" v-model="declineNote" autoResize rows="5" class="w-full" />
+          </div>
+          <div class="field col-12">
+            <Button type="submit" label="Envoyer" class="w-full" />
+          </div>
         </div>
         <Button label="Retour" @click="back" />
       </form>
 
-      <form @submit="submitRSVP2" class="flex flex-column gap-2" v-if="step === 2">
+      <form novalidate @submit.prevent="submitRSVP2" class="flex flex-column gap-2" v-if="step === 2">
         <div class="formgrid grid">
           <template v-if="nbChildren > 0">
             <div class="field col-12">
-              <label>Un menu spécial pour les enfants de 3 à 12 ans est prévu. En deça de 3 ans nous demandons aux parents de fournir le repas (la baby-sitter se chargera de superviser). Au delà de 12 ans, un menu adulte sera prévu. Toutefois vous êtes ceux qui connaissent le mieux les appétits de vos enfants, merci donc d'indiquer le nombre de menu enfant et adultes (pour enfants) que nous devons prévoir.</label>
+              <label>Un menu spécial pour les enfants de 3 à 12 ans est prévu. En deça de 3 ans nous demandons aux parents de fournir le repas (la baby-sitter se chargera de superviser). Toutefois vous êtes ceux qui connaissent le mieux les appétits de vos enfants, merci donc d'indiquer le nombre de menu enfant et adultes (pour enfants de plus de 12 ans) que nous devons prévoir.</label>
             </div>
             <div class="field col-12 md:col-6">
               <InputText id="allergies" v-model="nbChildMeals" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="allergies-help" size="small" placeholder="Nombre menu enfant" />
@@ -83,26 +88,26 @@
           </div>
           <div class="col-12 formgroup-inline">
             <div class="field-radiobutton">
-              <RadioButton v-model="brunch" inputId="present" name="isAllergic" :value="false" />
-              <label for="isAllergic">Malheureusement non</label>
-            </div>
-            <div class="field-radiobutton">
               <RadioButton v-model="brunch" inputId="absent" name="isAllergic" :value="true" />
               <label for="isntAllergic">Oui avec plaisir</label>
             </div>
-          </div>
-          <div class="field col-12" v-if="brunch">
-            <InputText id="nbBrunch" v-model="nbBrunch" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="allergies-help" size="small" placeholder="Nombre de personne" />
+            <div class="field-radiobutton">
+              <RadioButton v-model="brunch" inputId="present" name="isAllergic" :value="false" />
+              <label for="isAllergic">Je peux pas, j'ai poney le Dimanche !</label>
+            </div>
           </div>
         </div>
-        <Button type="submit" label="Suivant" />
+        <Button type="submit" label="Envoyer" />
         <Button label="Retour" @click="back" />
       </form>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { Form, Field } from 'vee-validate';
+import axios from 'axios'
+
 import { ref } from 'vue'
 
 const step = ref(0)
@@ -116,27 +121,73 @@ const ageOfChildren = ref('')
 const isAllergic = ref(false)
 const allergies = ref('')
 const brunch = ref('')
-const nbBrunch = ref('')
+const submitted = ref(false)
+const nbChildMeals = ref('')
+const nbAdultMeals = ref('')
 
 const submitRSVP0 = () => {
   step.value = 1
+  submitted.value = false
 }
 const submitRSVP1 = () => {
   if (confirm.value === false) {
-    console.log('out')
     step.value = 0
+    var element = document.getElementById("rsvp");
+    var top = element.offsetTop;
+    window.scrollTo(0, top);
+    submitted.value = true
+    resetFields()
   }
   else {
     step.value = 2
   }
 }
 const submitRSVP2 = () => {
-  step.value = 3
+  exportToSheet()
+  var element = document.getElementById("rsvp");
+  var top = element.offsetTop;
+  window.scrollTo(0, top);
+  submitted.value = true
+  step.value = 0
+  resetFields()
+
 }
 
 const back = () => {
   step.value -= 1
   confirm.value = null
+}
+const resetFields = () => {
+  name.value = ''
+  firstname.value = ''
+  nbAdults.value = ''
+  nbChildren.value = ''
+  confirm.value = null
+  declineNote.value = ''
+  ageOfChildren.value = ''
+  isAllergic.value = false
+  allergies.value = ''
+  brunch.value = ''
+  nbChildMeals.value = ''
+  nbAdultMeals.value = ''
+}
+
+const exportToSheet = () => {
+  const id = name.value + firstname.value
+  const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/users/${id}.json`;
+  const data = {
+    "firstname": name.value,
+    "name": firstname.value,
+    "confirm": confirm.value
+  }
+
+  axios.put(apiUrl, data)
+    .then(response => {
+      console.log('Données ajoutées avec succès à la feuille Google Sheets :', response.data);
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout de données à la feuille Google Sheets', error);
+    });
 }
 </script>
 

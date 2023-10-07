@@ -16,7 +16,9 @@ import Button from 'primevue/button'
 import ToggleButton from 'primevue/togglebutton'
 import TextArea from 'primevue/textarea'
 import RadioButton from 'primevue/radiobutton'
-
+import Message from 'primevue/message'
+import SectionTop from '@/components/SectionTop.vue'
+import Dialog from 'primevue/dialog'
 const app = createApp(App)
 
 app.component('InputText', InputText)
@@ -24,6 +26,9 @@ app.component('Button', Button)
 app.component('RadioButton', RadioButton)
 app.component('ToggleButton', ToggleButton)
 app.component('TextArea', TextArea)
+app.component('Message', Message)
+app.component('SectionTop', SectionTop)
+app.component('Dialog', Dialog)
 app.use(createPinia())
 app.use(router)
 app.use(PrimeVue, { ripple: true })

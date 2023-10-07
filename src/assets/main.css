@@ -41,3 +41,40 @@ h1 {
   text-transform: none;
   letter-spacing: 0em;
 }
+
+h2 {
+  font-family: Bartleen;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.25;
+  text-transform: none;
+  letter-spacing: 0em;
+}
+
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+ }
+
+.font-default-red {
+  color: #ad354b
+}
+
+.font-red-l1 {
+  color: #de476d
+}
+
+.font-default-green {
+  color: #3c5d5b
+}
+.font-green-l1 {
+  color: #69b03a
+}
+
+.font-default-gold {
+  color:#ecb21e
+}
+
+.font-default-pink {
+  color:#f1a2bd
+}
