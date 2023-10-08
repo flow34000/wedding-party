@@ -115,7 +115,7 @@ const showDialog = () => {
   visible.value = true
 }
 const submit = () => {
-  const id = name.value + firstname.value
+  const id = name.value.toLowerCase() + firstname.value.toLowerCase()
   const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/hostel/${id}.json`;
   const data = {
     "firstname": name.value,
