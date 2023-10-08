@@ -5,7 +5,7 @@
     <div class="flex flex-column section-content gap-3">
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <form novalidate @submit.prevent="submitRSVP0" class="flex flex-column gap-2" v-if="step === 0">
-        <p>Nous serions ravis de savoir si vous pourez nous rejoindre ! Pensez à completer le formulaire ci-dessous avant le 29 Février 2024.</p>
+        <p>Nous serions ravis de savoir si vous pourrez nous rejoindre ! Pensez à completer le formulaire ci-dessous avant le 29 Février 2024.</p>
         <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
         <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
         <small class="p-error" id="text-error">{{ errorMessage || '&nbsp;' }}</small>
