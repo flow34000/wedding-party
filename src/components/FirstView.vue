@@ -40,8 +40,6 @@ import Countdown from './Countdown.vue'
 }
 
 .content {
-  padding-right: 15%;
-  padding-left: 15%;
   margin-top: 8rem;
 }
 
