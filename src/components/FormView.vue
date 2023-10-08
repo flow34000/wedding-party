@@ -66,7 +66,7 @@
             </div>
           </template>
           <div class="field col-12">
-            <label>Avez-vous des allergies ?</label>
+            <label>Y-a-t'il des allergies alimentaires à signaler?</label>
           </div>
           <div class="col-12 formgroup-inline">
             <div class="field-radiobutton">
