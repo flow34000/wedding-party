@@ -40,7 +40,7 @@
         <div class="formgrid grid" v-if="confirm === false">
           <div class="field col-12">
             <label for="declineNote">Un petit mot pour les futurs mariés ?</label>
-            <Textarea id="declineNote" v-model="declineNote" autoResize rows="5" class="w-full" />
+            <InputText id="declineNote" v-model="declineNote" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']"/>
           </div>
           <div class="field col-12">
             <Button type="submit" label="Envoyer" class="w-full" />
@@ -88,12 +88,12 @@
           </div>
           <div class="col-12 formgroup-inline">
             <div class="field-radiobutton">
-              <RadioButton v-model="brunch" inputId="absent" name="isAllergic" :value="true" />
-              <label for="isntAllergic">Oui avec plaisir</label>
+              <RadioButton v-model="brunch" inputId="nobrunch" name="nobrunch" :value="true" />
+              <label for="nobrunch">Oui avec plaisir</label>
             </div>
             <div class="field-radiobutton">
-              <RadioButton v-model="brunch" inputId="present" name="isAllergic" :value="false" />
-              <label for="isAllergic">Je peux pas, j'ai poney le Dimanche !</label>
+              <RadioButton v-model="brunch" inputId="brunch" name="brunch" :value="false" />
+              <label for="brunch">Je peux pas, j'ai poney le Dimanche !</label>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ const firstname = ref('')
 const nbAdults = ref('')
 const nbChildren = ref('')
 const confirm = ref(null)
-const declineNote = ref('')
+const declineNote = ref('test')
 const ageOfChildren = ref('')
 const isAllergic = ref(false)
 const allergies = ref('')
@@ -131,6 +131,7 @@ const submitRSVP0 = () => {
 }
 const submitRSVP1 = () => {
   if (confirm.value === false) {
+    exportToSheet()
     step.value = 0
     var element = document.getElementById("rsvp");
     var top = element.offsetTop;
@@ -150,7 +151,6 @@ const submitRSVP2 = () => {
   submitted.value = true
   step.value = 0
   resetFields()
-
 }
 
 const back = () => {
@@ -173,12 +173,21 @@ const resetFields = () => {
 }
 
 const exportToSheet = () => {
-  const id = name.value + firstname.value
+  const id = name.value.toLowerCase() + firstname.value.toLowerCase()
   const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/users/${id}.json`;
   const data = {
-    "firstname": name.value,
-    "name": firstname.value,
-    "confirm": confirm.value
+    "name" : name.value,
+    "firstname" : firstname.value,
+    "nbAdults" : nbAdults.value,
+    "nbChildren" : nbChildren.value,
+    "confirm" : confirm.value,
+    "declineNote" : declineNote.value,
+    "ageOfChildren" : ageOfChildren.value,
+    "isAllergic" : isAllergic.value,
+    "allergies" : allergies.value,
+    "brunch" : brunch.value,
+    "nbChildMeals" : nbChildMeals.value,
+    "nbAdultMeals" : nbAdultMeals.value
   }
 
   axios.put(apiUrl, data)

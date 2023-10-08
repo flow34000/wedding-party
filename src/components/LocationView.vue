@@ -88,7 +88,9 @@
         <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
         <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
         <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
-        <Button type="submit" label="Valider" />
+        <InputText id="gite" v-model="gite" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Gîte souhaité" />
+        <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
+        <Button type="submit" label="Valider" class="mt-2" />
       </form>
     </template>
   </Dialog>
@@ -102,12 +104,14 @@ const visible = ref(false);
 const firstname = ref('');
 const name = ref('');
 const nbPeople = ref('');
+const gite = ref('')
 const submitted = ref(false)
 const showDialog = () => {
   submitted.value = false
   name.value = ''
   firstname.value = ''
   nbPeople.value = ''
+  gite.value = ''
   visible.value = true
 }
 const submit = () => {
@@ -117,6 +121,7 @@ const submit = () => {
     "firstname": name.value,
     "name": firstname.value,
     "nbPeople": nbPeople.value,
+    "gite": gite.value,
     "date": new Date()
   }
 
