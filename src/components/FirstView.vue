@@ -1,5 +1,5 @@
 <template>
-  <div id="first" class="section align-items-center">
+  <div id="first" class="section align-items-center prevent-select">
     <div class="bg-filter" style="z-index: -1">
       <div></div>
     </div>

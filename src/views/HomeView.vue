@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen grid grid-nogutter">
-    <div class="flex h-screen justify-content-center align-items-center md:fixed  col-12 md:col-7">
+    <div class="flex h-screen justify-content-center align-items-center md:fixed  col-12 md:col-7 prevent-select">
       <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
         <p class="title text-center font-bold">Floriane & Florent</p>
