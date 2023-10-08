@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="visible" modal header="Réserver" :style="{ width: '70vw' }" :breakpoints="{ '960px': '30vw', '641px': '40vw' }">
+  <Dialog v-model:visible="visible" modal header="Réserver" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">

@@ -15,15 +15,15 @@
 
 @font-face {
   font-family: Bartleen;
-  src: url('src/assets/fonts/Bartleen Script.otf');
+  src: url('fonts/Bartleen Script.otf');
 }
 
   @font-face {
     font-family: Noteworthy-bold;
-    src: url('src/assets/fonts/Noteworthy-Bold.ttf'); 
+    src: url('fonts/Noteworthy-Bold.ttf'); 
   }
 
   @font-face {
     font-family: Noteworthy-light;
-    src: url('src/assets/fonts/Noteworthy-Light.ttf'); 
+    src: url('fonts/Noteworthy-Light.ttf'); 
   }

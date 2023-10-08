@@ -28,8 +28,10 @@ import LocationView from '../components/LocationView.vue'
 import FormView from '../components/FormView.vue'
 import PhotoView from '../components/PhotoView.vue'
 import ContactView from '../components/ContactView.vue'
+import { useRouter } from 'vue-router'
 
 const currentSection = ref('')
+const router = useRouter()
 
 const scrollHandler = () => {
   const sections = ['first', 'story', 'program', 'location', 'rsvp', 'photos', 'contact'];
@@ -74,37 +76,37 @@ onBeforeUnmount(() => {
 }
 
 .first.left-image {
-  background-image: url('src/assets/WA0016.jpg');
+  background-image: url('../assets/WA0016.jpg');
   background-position: center center;
 }
 
 .story.left-image {
-  background-image: url('src/assets/sunset.jpg');
+  background-image: url('../assets/sunset.jpg');
   background-position: 40% 75%;
 }
 
 .program.left-image {
-  background-image: url('src/assets/fiancailles.jpg');
+  background-image: url('../assets/fiancailles.jpg');
   background-position: center center;
 }
 
 .location.left-image {
-  background-image: url('src/assets/P150646.jpg');
+  background-image: url('../assets/P150646.jpg');
   background-position: 15% 75%;
 }
 
 .rsvp.left-image {
-  background-image: url('src/assets/P174416.jpg');
+  background-image: url('../assets/P174416.jpg');
   background-position: center center;
 }
 
 .photos.left-image {
-  background-image: url('src/assets/beaujoview.jpg');
+  background-image: url('../assets/beaujoview.jpg');
   background-position: 80% 75%;
 }
 
 .contact.left-image {
-  background-image: url('src/assets/family.jpg');
+  background-image: url('../assets/family.jpg');
   background-position: center center;
 }
 
