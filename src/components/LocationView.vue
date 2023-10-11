@@ -40,8 +40,9 @@
 
       <h2 class="text-center">Les hébergements</h2>
       <p> Il ne sera pas possible de dormir dans la salle du domaine, un gardien sera sur place et fermera à clé à 5h du matin. Nous vous recommandons de loger dans des gîtes dans les environs du domaine. Malheureusement peu d'entre eux sont accessibles à pied.
-        Nous avons identifié quelques gîtes et effectué une pré-réservation pour un gîte de 21 couchages. Celui-ci se trouve à 8 minutes en voiture.
-        Premier arrivé, premier servi!</p>
+        Nous avons identifié quelques gîtes et effectué deux pré-réservations. Un gîte de 21 couchages qui se trouve à 8 minutes en voiture. Et un autre de 15 couchages qui se trouve à 3 minutes en voiture.
+      </p>  
+      <p>Premier arrivé, premier servi!</p>
 
       <div class="grid">
         <div class="col-12 md:col-5">
@@ -54,6 +55,19 @@
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit (vendredi et samedi minimum)</p>
           <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="col-12 md:col-5">
+          <img class="border-round w-full" src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg" />
+        </div>
+        <div class="col-12 md:col-7 flex-column flex gap-2">
+          <p class="font-bold">Gîte des Essarts</p>
+          <a href="https://gitedesessarts.com/">https://gitedesessarts.com</a>
+          <p>Gîte de 15 personnes - 30€/pers</p>
+          <p>2 chambres : 8 et 7 personnes</p>
+          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog2" /></div>
         </div>
       </div>
       <p>D'autres hébergements existent dans les environs même si beaucoup d'entre eux semblent déjà réservés. N'hésitez pas à regarder sur Gîtes de France, Airbnb, les hôtels environnants (ex: <a class="underline" href="https://www.booking.com/hotel/fr/the-liberty-s.fr.html">The Liberty's</a>) ou les campings environnants (ex: <a class="underline" href="https://www.capfun.com/camping-france-rhone_alpes-port_du_beaujolais-FR.html">Camping Les Portes du Beaujolais</a>).</p>
@@ -75,13 +89,13 @@
         Si votre enfant a des habitudes spécifiques (veilleuse, couches...) merci de le noter quelque part dans les affaires de votre enfant et de le notifier oralement à la baby-sitter durant la soirée.</p>
       <p>
         Afin d'assurer la sécurité de vos bambins, il est indispensable que nous sachions au plus tard le 29 Février 2024 s'ils se joindront au mariage. Merci de le préciser lorsque vous confirmerez votre présence.</p>
-      <a class="text-center" href="#rsvp"><Button label="RSVP" size="small" /></a>
+      <a class="text-center" href="#rsvp"><Button label="RSVP" icon="pi pi-send" raised rounded size="small"/></a>
       <p>Note: les baby-sitters sont majeur(e)s, sous contrat et habitué(e)s des gardes de mariage. </p>
 
     </div>
   </div>
 
-  <Dialog v-model:visible="visible" modal header="Réserver" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
+  <Dialog v-model:visible="visible" modal header="Réserver L'Aube du Moulin" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
@@ -94,6 +108,18 @@
       </form>
     </template>
   </Dialog>
+  <Dialog v-model:visible="visible2" modal header="Réserver Gîte des Essarts" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
+    <template #default>
+      <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
+      <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
+        <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
+        <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
+        <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
+        <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
+        <Button type="submit" label="Valider" class="mt-2" />
+      </form>
+    </template>
+  </Dialog>
 </template>
 
 <script setup>
@@ -101,6 +127,7 @@ import axios from 'axios'
 import { ref } from "vue";
 
 const visible = ref(false);
+const visible2 = ref(false);
 const firstname = ref('');
 const name = ref('');
 const nbPeople = ref('');
@@ -114,7 +141,35 @@ const showDialog = () => {
   gite.value = ''
   visible.value = true
 }
+const showDialog2 = () => {
+  submitted.value = false
+  name.value = ''
+  firstname.value = ''
+  nbPeople.value = ''
+  gite.value = 'Les Essarts'
+  visible2.value = true
+}
 const submit = () => {
+  const id = name.value.toLowerCase() + firstname.value.toLowerCase()
+  const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/hostel/${id}.json`;
+  const data = {
+    "firstname": name.value,
+    "name": firstname.value,
+    "nbPeople": nbPeople.value,
+    "gite": gite.value,
+    "date": new Date()
+  }
+
+  axios.put(apiUrl, data)
+    .then(response => {
+      console.log('Données ajoutées avec succès à la feuille Google Sheets :', response.data);
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout de données à la feuille Google Sheets', error);
+    });
+  submitted.value = true
+}
+const submit2 = () => {
   const id = name.value.toLowerCase() + firstname.value.toLowerCase()
   const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/hostel/${id}.json`;
   const data = {

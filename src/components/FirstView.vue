@@ -11,7 +11,10 @@
       <p class="date">Samedi<br /> 29 juin 2024</p>
       <p class="location">Domaine des Coteaux d'Or<br /> Porte des Pierres Dorées</p>
       <Countdown></Countdown>
-      <a href="#rsvp"><Button label="RSVP" /></a>
+      <div class="flex gap-3 align-items-center">
+        <p class="font-bold">Cliquez ici <i class="pi pi-arrow-right ml-2 vertical-align-middle" ></i></p>
+        <a href="#rsvp"><Button label="RSVP" icon="pi pi-send" raised rounded/></a>
+      </div>
     </div>
     <div class="hidden md:flex flex-column mt-5 opacity-80">
       <a href="#story">
