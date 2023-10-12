@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex gap-2" style="height:30px">
+  <nav class="flex gap-2" style="height: 30px">
     <a href="#home">Accueil</a>
     <a href="#program">Programme</a>
     <a href="#location">Lieu</a>

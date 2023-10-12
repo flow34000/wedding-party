@@ -11,31 +11,33 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch } from 'vue'
 
 const props = defineProps(['property', 'time'])
 const cardElement = ref(null)
-const current = ref(0);
-const previous = ref(0);
-const show = ref(false);
+const current = ref(0)
+const previous = ref(0)
+const show = ref(false)
 
-watch(() => props.time, (val, timePrew) => {
+watch(
+  () => props.time,
+  (val) => {
+    show.value = true
+    val = val < 0 ? 0 : val
 
-  show.value = true;
-  val = val < 0 ? 0 : val;
-
-  if (val !== current.value) {
-    previous.value = current.value;
-    current.value = val;
-    cardElement.value.classList.remove('flipo');
-    void cardElement.value.offsetWidth;
-    cardElement.value.classList.add('flipo');
+    if (val !== current.value) {
+      previous.value = current.value
+      current.value = val
+      cardElement.value.classList.remove('flipo')
+      void cardElement.value.offsetWidth
+      cardElement.value.classList.add('flipo')
+    }
   }
-})
+)
 
 const zerofill = (value) => {
-  return (value < 10 && value > -1 ? '0' : '') + value;
-};
+  return (value < 10 && value > -1 ? '0' : '') + value
+}
 </script>
 
 <style lang="scss">
@@ -68,12 +70,9 @@ $borderRadius: 0.15em;
   .flip-clock__slot {
     font-size: 1.2rem;
   }
-
 }
 
-
 /*////////////////////////////////////////*/
-
 
 .flip-card__top,
 .flip-card__bottom,
@@ -84,7 +83,7 @@ $borderRadius: 0.15em;
   height: $halfHeight;
   color: #ccc;
   background: #136f63;
-  padding: 0.1em 0.25em 0.40em;
+  padding: 0.1em 0.25em 0.4em;
   border-radius: $borderRadius $borderRadius 0 0;
   transform-style: preserve-3d;
   width: 2.25em;
@@ -92,7 +91,7 @@ $borderRadius: 0.15em;
 
 .flip-card__bottom,
 .flip-card__back-bottom {
-  color: #FFF;
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 0;
@@ -135,7 +134,7 @@ $borderRadius: 0.15em;
 
 .flipo .flip-card__back::before {
   z-index: 1;
-  animation: flipTop 0.3s cubic-bezier(.37, .01, .94, .35);
+  animation: flipTop 0.3s cubic-bezier(0.37, 0.01, 0.94, 0.35);
   animation-fill-mode: both;
   transform-origin: center bottom;
 }
@@ -143,7 +142,7 @@ $borderRadius: 0.15em;
 .flipo .flip-card__bottom {
   transform-origin: center top;
   animation-fill-mode: both;
-  animation: flipBottom 0.6s cubic-bezier(.15, .45, .28, 1); // 0.3s;
+  animation: flipBottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1); // 0.3s;
 }
 
 @keyframes flipTop {
@@ -164,7 +163,6 @@ $borderRadius: 0.15em;
 }
 
 @keyframes flipBottom {
-
   0%,
   50% {
     z-index: -1;

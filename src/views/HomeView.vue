@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen grid grid-nogutter">
-    <div class="flex h-screen justify-content-center align-items-center md:fixed  col-12 md:col-7 prevent-select">
+    <div class="flex h-screen justify-content-center align-items-center md:fixed col-12 md:col-7 prevent-select">
       <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
         <p class="title text-center font-bold">Floriane & Florent</p>
@@ -28,22 +28,20 @@ import LocationView from '../components/LocationView.vue'
 import FormView from '../components/FormView.vue'
 import PhotoView from '../components/PhotoView.vue'
 import ContactView from '../components/ContactView.vue'
-import { useRouter } from 'vue-router'
 
 const currentSection = ref('')
-const router = useRouter()
 
 const scrollHandler = () => {
-  const sections = ['first', 'story', 'program', 'location', 'rsvp', 'photos', 'contact'];
-  let visibleSection = '';
+  const sections = ['first', 'story', 'program', 'location', 'rsvp', 'photos', 'contact']
+  let visibleSection = ''
   for (const sectionId of sections) {
-    const section = document.getElementById(sectionId);
+    const section = document.getElementById(sectionId)
     if (section && section.getBoundingClientRect().top < window.innerHeight / 2) {
-      visibleSection = sectionId;
+      visibleSection = sectionId
     }
   }
   if (visibleSection !== '') {
-    currentSection.value = visibleSection;
+    currentSection.value = visibleSection
   }
 }
 
@@ -65,7 +63,7 @@ onBeforeUnmount(() => {
   line-height: 1.16;
   text-transform: none;
   letter-spacing: 0em;
-  color: white
+  color: white;
 }
 
 .left-image {
@@ -115,7 +113,20 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   padding: 10% 20% 11% 10%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.306) 13%, rgba(0, 0, 0, 0.228) 26%, rgba(0, 0, 0, 0.164) 37%, rgba(0, 0, 0, 0.112) 48%, rgba(0, 0, 0, 0.07) 59%, rgba(0, 0, 0, 0.043) 68%, rgba(0, 0, 0, 0.022) 77%, rgba(0, 0, 0, 0.009) 85%, rgba(0, 0, 0, 0.002) 92%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.306) 13%,
+    rgba(0, 0, 0, 0.228) 26%,
+    rgba(0, 0, 0, 0.164) 37%,
+    rgba(0, 0, 0, 0.112) 48%,
+    rgba(0, 0, 0, 0.07) 59%,
+    rgba(0, 0, 0, 0.043) 68%,
+    rgba(0, 0, 0, 0.022) 77%,
+    rgba(0, 0, 0, 0.009) 85%,
+    rgba(0, 0, 0, 0.002) 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
   width: 100%;
   height: 75%;
   justify-content: flex-end;

@@ -6,22 +6,34 @@
     <div class="bg-bottom" style="z-index: -1">
       <div></div>
     </div>
-    <img src="../assets/flowerstop.png" class="top-leaf absolute top-0" rel="preload"/>
+    <img src="../assets/flowerstop.png" class="top-leaf absolute top-0" rel="preload" />
     <div class="flex align-items-center gap-5 flex-column content text-center">
-      <p class="date">Samedi<br /> 29 juin 2024</p>
-      <p class="location">Domaine des Coteaux d'Or<br /> Porte des Pierres Dorées</p>
+      <p class="date">
+        Samedi<br />
+        29 juin 2024
+      </p>
+      <p class="location">
+        Domaine des Coteaux d'Or<br />
+        Porte des Pierres Dorées
+      </p>
       <Countdown></Countdown>
       <div class="flex gap-3 align-items-center">
-        <p class="font-bold">Cliquez ici <i class="pi pi-arrow-right ml-2 vertical-align-middle" ></i></p>
-        <a href="#rsvp"><Button label="RSVP" icon="pi pi-send" raised rounded/></a>
+        <p class="font-bold">Cliquez ici <i class="pi pi-arrow-right ml-2 vertical-align-middle"></i></p>
+        <a href="#rsvp"><Button label="RSVP" icon="pi pi-send" raised rounded /></a>
       </div>
     </div>
     <div class="hidden md:flex flex-column mt-5 opacity-80">
       <a href="#story">
-        <p style="height: 35px;line-height:35px;" class="font-bold mb-3 text-xl">Voir les détails</p>
-        <div style="height: 49px;" class="slide-fwd-top relative flex justify-content-center">
+        <p style="height: 35px; line-height: 35px" class="font-bold mb-3 text-xl">Voir les détails</p>
+        <div style="height: 49px" class="slide-fwd-top relative flex justify-content-center">
           <svg width="66" height="15" viewBox="0 0 66 15" fill="none" class="absolute bottom-0">
-            <path opacity="0.8" fill-rule="evenodd" clip-rule="evenodd" d="M30.294 14.1a10 10 0 005.882 0l27.905-8.586a2.5 2.5 0 00-1.47-4.779L36.176 8.87a10 10 0 01-5.882 0L3.86.735a2.5 2.5 0 00-1.47 4.78L30.293 14.1z" fill="black"></path>
+            <path
+              opacity="0.8"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M30.294 14.1a10 10 0 005.882 0l27.905-8.586a2.5 2.5 0 00-1.47-4.779L36.176 8.87a10 10 0 01-5.882 0L3.86.735a2.5 2.5 0 00-1.47 4.78L30.293 14.1z"
+              fill="black"
+            ></path>
           </svg>
         </div>
       </a>
@@ -39,7 +51,7 @@ import Countdown from './Countdown.vue'
 }
 
 .top-leaf {
-  width: 70%
+  width: 70%;
 }
 
 .content {
@@ -67,7 +79,7 @@ import Countdown from './Countdown.vue'
   background-position-y: center;
 }
 
-.bg-bottom>div {
+.bg-bottom > div {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -126,7 +138,6 @@ import Countdown from './Countdown.vue'
  * ----------------------------------------
  */
 @-webkit-keyframes slide-fwd-top {
-
   0%,
   20%,
   50%,

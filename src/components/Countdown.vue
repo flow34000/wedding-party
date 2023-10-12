@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, onMounted } from 'vue'
 import Tracker from './Tracker.vue'
 const weddingDate = new Date('2024-06-29T00:00:00')
 const days = ref(0)
@@ -32,10 +32,8 @@ onMounted(() => {
 })
 </script>
 
-
 <style lang="scss">
 .flip-clock {
-
   *,
   *:before,
   *:after {
