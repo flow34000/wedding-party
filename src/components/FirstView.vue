@@ -6,7 +6,7 @@
     <div class="bg-bottom" style="z-index: -1">
       <div></div>
     </div>
-    <img src="../assets/flowerstop.png" class="top-leaf absolute top-0" />
+    <img src="../assets/flowerstop.png" class="top-leaf absolute top-0" rel="preload"/>
     <div class="flex align-items-center gap-5 flex-column content text-center">
       <p class="date">Samedi<br /> 29 juin 2024</p>
       <p class="location">Domaine des Coteaux d'Or<br /> Porte des Pierres Dorées</p>

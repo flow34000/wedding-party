@@ -6,7 +6,7 @@
     <div style="opacity: 30%;"></div>
   </div>
   <div class="flex justify-content-center">
-    <img src="../assets/flowers.png" style="width:45%" />
+    <img src="../assets/flowers.png" style="width:45%" rel="preload"/>
   </div>
 </template>
 

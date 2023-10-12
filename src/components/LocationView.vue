@@ -45,8 +45,8 @@
       <p>Premier arrivé, premier servi!</p>
 
       <div class="grid">
-        <div class="col-12 md:col-5">
-          <img class="border-round w-full" src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg" />
+        <div class="col-12 md:col-5 flex align-items-center">
+          <img class="border-round w-full" src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg" style="height:fit-content"/>
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
           <p class="font-bold">L'Aube du moulin</p>
@@ -59,8 +59,8 @@
       </div>
 
       <div class="grid">
-        <div class="col-12 md:col-5">
-          <img class="border-round w-full" src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg" />
+        <div class="col-12 md:col-5 flex align-items-center">
+          <img class="border-round w-full" src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg" style="height:fit-content"/>
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
           <p class="font-bold">Gîte des Essarts</p>
