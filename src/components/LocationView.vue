@@ -9,10 +9,7 @@
       </p>
       <p>
         Adresse :
-        <a
-          href="https://www.google.fr/maps/place/Chem.+de+Graves/@45.9584427,4.6335932,17z/data=!4m7!3m6!1s0x47f488a63cdfd1bb:0xbe635ff11809117f!4b1!8m2!3d45.958439!4d4.6361681!16s%2Fg%2F1tj2h6_q?entry=ttu"
-          >409 chemin des Graves 69400 Porte des Pierres Dorées</a
-        >
+        <a href="https://www.google.fr/maps/place/Chem.+de+Graves/@45.9584427,4.6335932,17z/data=!4m7!3m6!1s0x47f488a63cdfd1bb:0xbe635ff11809117f!4b1!8m2!3d45.958439!4d4.6361681!16s%2Fg%2F1tj2h6_q?entry=ttu">409 chemin des Graves 69400 Porte des Pierres Dorées</a>
       </p>
 
       <p class="font-bold uppercase text-center">Pour vous y rendre :</p>
@@ -20,15 +17,7 @@
         <img src="../assets/003-voiture.png" style="width: 50px" />
       </div>
       <div class="border-solid border-green-700">
-        <iframe
-          width="100%"
-          height="450"
-          style="border: 0"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8hGOmuUWhoFCW2oZfjXH08Y17iNhHc6E&q=409 Chem. de Graves, 69400 Porte des Pierres Dorées"
-        >
+        <iframe width="100%" height="450" style="border: 0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC8hGOmuUWhoFCW2oZfjXH08Y17iNhHc6E&q=409 Chem. de Graves, 69400 Porte des Pierres Dorées">
         </iframe>
       </div>
 
@@ -69,29 +58,24 @@
 
       <div class="grid">
         <div class="col-12 md:col-5 flex align-items-center">
-          <img
-            class="border-round w-full"
-            src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg"
-            style="height: fit-content"
-          />
+          <img class="border-round w-full" src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg" style="height: fit-content" />
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
           <p class="font-bold">L'Aube du moulin</p>
           <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr/</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit (vendredi et samedi minimum)</p>
-          <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
+          <span>
+            <p class="line-through">Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
+            <p class="text-red-500 uppercase">complet</p>
+          </span>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
         </div>
       </div>
 
       <div class="grid">
         <div class="col-12 md:col-5 flex align-items-center">
-          <img
-            class="border-round w-full"
-            src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg"
-            style="height: fit-content"
-          />
+          <img class="border-round w-full" src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg" style="height: fit-content" />
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
           <p class="font-bold">Gîte des Essarts</p>
@@ -106,9 +90,7 @@
         Gîtes de France, Airbnb, les hôtels environnants (ex:
         <a class="underline" href="https://www.booking.com/hotel/fr/the-liberty-s.fr.html">The Liberty's</a>) ou les campings environnants
         (ex:
-        <a class="underline" href="https://www.capfun.com/camping-france-rhone_alpes-port_du_beaujolais-FR.html"
-          >Camping Les Portes du Beaujolais</a
-        >).
+        <a class="underline" href="https://www.capfun.com/camping-france-rhone_alpes-port_du_beaujolais-FR.html">Camping Les Portes du Beaujolais</a>).
       </p>
       <p class="font-bold">Nous mettrons à jour cette liste prochainement.</p>
       <p>Pour les plus téméraires, il sera aussi possible de planter une toile de tente en contrebas du domaine.</p>
@@ -144,94 +126,26 @@
     </div>
   </div>
 
-  <Dialog
-    v-model:visible="visible"
-    modal
-    header="Réserver L'Aube du Moulin"
-    :style="{ width: '30vw' }"
-    :breakpoints="{ '960px': '50vw', '641px': '70vw' }"
-  >
+  <Dialog v-model:visible="visible" modal header="Réserver L'Aube du Moulin" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
-        <InputText
-          id="firstname"
-          v-model="firstname"
-          type="text"
-          :class="{ 'p-invalid': errorMessage }"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Prénom"
-        />
-        <InputText
-          id="name"
-          v-model="name"
-          type="text"
-          :class="{ 'p-invalid': errorMessage }"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Nom"
-        />
-        <InputText
-          id="nbPeople"
-          v-model="nbPeople"
-          type="text"
-          :class="[{ 'p-invalid': errorMessage }, 'w-full']"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Nombre de personnes"
-        />
-        <InputText
-          id="gite"
-          v-model="gite"
-          type="text"
-          :class="[{ 'p-invalid': errorMessage }, 'w-full']"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Gîte souhaité"
-        />
+        <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
+        <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
+        <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
+        <InputText id="gite" v-model="gite" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Gîte souhaité" />
         <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
         <Button type="submit" label="Valider" class="mt-2" />
       </form>
     </template>
   </Dialog>
-  <Dialog
-    v-model:visible="visible2"
-    modal
-    header="Réserver Gîte des Essarts"
-    :style="{ width: '30vw' }"
-    :breakpoints="{ '960px': '50vw', '641px': '70vw' }"
-  >
+  <Dialog v-model:visible="visible2" modal header="Réserver Gîte des Essarts" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
-        <InputText
-          id="firstname"
-          v-model="firstname"
-          type="text"
-          :class="{ 'p-invalid': errorMessage }"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Prénom"
-        />
-        <InputText
-          id="name"
-          v-model="name"
-          type="text"
-          :class="{ 'p-invalid': errorMessage }"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Nom"
-        />
-        <InputText
-          id="nbPeople"
-          v-model="nbPeople"
-          type="text"
-          :class="[{ 'p-invalid': errorMessage }, 'w-full']"
-          aria-describedby="text-error"
-          size="small"
-          placeholder="Nombre de personnes"
-        />
+        <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
+        <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
+        <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
         <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
         <Button type="submit" label="Valider" class="mt-2" />
       </form>
