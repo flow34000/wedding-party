@@ -1,5 +1,6 @@
 <template>
   <div id="story" class="section">
+    <SectionTop></SectionTop>
     <h1 class="text-center">Notre histoire</h1>
     <div class="flex flex-column section-content text-justify">
       <p>
@@ -55,7 +56,9 @@
         Donc, c'est pour célébrer nos 12 ans de rencontre que nous allons prononcer ce grand OUI devant vous tous, nos chers amis et proches
         !
       </p>
-      <p class="text-center font-default-gold font-bold mt-4">Let's get this party started ! 🎉🥂</p>
+      <span class="mt-4 text-center">
+        <a href="#program" class=" border-round inline-block bg-white"><Button label="Let's get this party started ! 🎉🥂" severity="warning" raised outlined /></a>
+      </span>
     </div>
   </div>
 </template>
