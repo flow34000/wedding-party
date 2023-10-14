@@ -61,10 +61,10 @@
           <img class="border-round w-full" src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg" style="height: fit-content" />
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
-          <p class="font-bold">L'Aube du moulin</p>
+          <p class="font-bold">L'Aube du moulin <small>(8 min en voiture)</small></p>
           <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr/</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
-          <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit (vendredi et samedi minimum)</p>
+          <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
           <span>
             <p class="line-through">Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
             <p class="text-red-500 uppercase">complet</p>
@@ -78,11 +78,11 @@
           <img class="border-round w-full" src="https://gitedesessarts.files.wordpress.com/2022/04/cropped-8cf9b58f-f30f-4e8f-a6e7-a0c2cabfcaf7.jpg" style="height: fit-content" />
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
-          <p class="font-bold">Gîte des Essarts</p>
+          <p class="font-bold">Gîte des Essarts <small>(20 min à pied)</small></p>
           <a href="https://gitedesessarts.com/">https://gitedesessarts.com</a>
-          <p>Gîte de 15 personnes - 30€/pers</p>
-          <p>2 chambres : 8 et 7 personnes</p>
-          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog2" /></div>
+          <p class="line-through">Gîte de 15 personnes - 30€/pers</p>
+          <p class="line-through">2 chambres : 8 et 7 personnes</p>
+          <p class="text-red-500 uppercase">complet</p>
         </div>
       </div>
       <p>
