@@ -65,10 +65,7 @@
           <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr/</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
-          <span>
-            <p class="line-through">Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
-            <p class="text-red-500 uppercase">complet</p>
-          </span>
+          <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
         </div>
       </div>
