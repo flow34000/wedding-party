@@ -66,7 +66,7 @@
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
           <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (2 lits simples) </small>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
-          <small class="text-red-500 uppercase">Reste 8 places: 1 chambre (2 lits doubles + 2 simples), 1 chambre (4 lits simples) </small>
+          <small class="text-red-500 uppercase">Reste 8 places: 1 chambre (1 lit double + 2 simples), 1 chambre (4 lits simples) </small>
           <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
         </div>
