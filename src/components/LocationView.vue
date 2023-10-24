@@ -64,11 +64,10 @@
           <p class="font-bold">L'Aube du moulin <small>(8 min en voiture)</small></p>
           <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr/</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
+          <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (2 lits simples) </small>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
-          <span>
-            <p class="line-through">Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
-            <p class="text-red-500 uppercase">complet</p>
-          </span>
+          <small class="text-red-500 uppercase">Reste 8 places: 1 chambre (2 lits doubles + 2 simples), 1 chambre (4 lits simples) </small>
+          <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
         </div>
       </div>
@@ -129,26 +128,13 @@
   <Dialog v-model:visible="visible" modal header="Réserver L'Aube du Moulin" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
-      <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
-        <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
-        <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
-        <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
-        <InputText id="gite" v-model="gite" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Gîte souhaité" />
-        <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
-        <Button type="submit" label="Valider" class="mt-2" />
-      </form>
+      <LocationForm @submited="submit" :show-gite="true"></LocationForm>
     </template>
   </Dialog>
   <Dialog v-model:visible="visible2" modal header="Réserver Gîte des Essarts" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
-      <form novalidate @submit.prevent="submit" class="flex flex-column gap-2">
-        <InputText id="firstname" v-model="firstname" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Prénom" />
-        <InputText id="name" v-model="name" type="text" :class="{ 'p-invalid': errorMessage }" aria-describedby="text-error" size="small" placeholder="Nom" />
-        <InputText id="nbPeople" v-model="nbPeople" type="text" :class="[{ 'p-invalid': errorMessage }, 'w-full']" aria-describedby="text-error" size="small" placeholder="Nombre de personnes" />
-        <small>Note: Le montant sera à rembourser aux mariés avant le 29 Février 2024. </small>
-        <Button type="submit" label="Valider" class="mt-2" />
-      </form>
+      <LocationForm @submited="submit"></LocationForm>
     </template>
   </Dialog>
 </template>
@@ -156,48 +142,38 @@
 <script setup lang="ts">
 import axios from 'axios'
 import { ref } from 'vue'
+import LocationForm from './LocationForm.vue'
 
 const visible = ref(false)
 const visible2 = ref(false)
-const firstname = ref('')
-const name = ref('')
-const nbPeople = ref('')
-const gite = ref('')
 const submitted = ref(false)
+
 const showDialog = () => {
   submitted.value = false
-  name.value = ''
-  firstname.value = ''
-  nbPeople.value = ''
-  gite.value = ''
   visible.value = true
 }
 const showDialog2 = () => {
   submitted.value = false
-  name.value = ''
-  firstname.value = ''
-  nbPeople.value = ''
-  gite.value = 'Les Essarts'
   visible2.value = true
 }
-const submit = () => {
-  const id = name.value.toLowerCase() + firstname.value.toLowerCase()
+function submit(values: any) {
+  const id = values.name.toLowerCase() + values.firstname.toLowerCase()
   const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/hostel/${id}.json`
   const data = {
-    firstname: name.value,
-    name: firstname.value,
-    nbPeople: nbPeople.value,
-    gite: gite.value,
+    firstname: values.firstname,
+    name: values.name,
+    nbPeople: values.nbPeople,
+    gite: values.gite ? values.gite : 'Les Essarts',
     date: new Date()
   }
 
   axios
     .put(apiUrl, data)
     .then((response) => {
-      console.log('Données ajoutées avec succès à la feuille Google Sheets :', response.data)
+      console.log('Données sauvées avec succès :', response.data)
     })
     .catch((error) => {
-      console.error("Erreur lors de l'ajout de données à la feuille Google Sheets", error)
+      console.error('Erreur lors de la sauvegarde des données', error)
     })
   submitted.value = true
 }
