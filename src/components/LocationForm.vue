@@ -24,9 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import { useForm } from 'vee-validate';
-import { onBeforeMount } from 'vue';
-import * as yup from 'yup';
+import { useForm } from 'vee-validate'
+import { onBeforeMount } from 'vue'
+import * as yup from 'yup'
 
 const emit = defineEmits(['submited'])
 
