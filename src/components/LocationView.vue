@@ -58,17 +58,32 @@
 
       <div class="grid">
         <div class="col-12 md:col-5 flex align-items-center">
+          <img class="border-round w-full" src="https://a0.muscache.com/im/pictures/hosting/Hosting-1010061113473015361/original/e12ed261-6a8d-4e12-8ded-305223c9b3d2.jpeg?im_w=1440" style="height: fit-content" />
+        </div>
+        <div class="col-12 md:col-7 flex-column flex gap-2">
+          <p class="font-bold"><i class="pi pi-star-fill"></i> Nouveau</p>
+          <p class="font-bold">Le clos du botaniste <small>(2 min à pied)</small></p>
+          <a href="https://www.airbnb.fr/rooms/1010061113473015361">https://www.airbnb.fr</a>
+          <p>Gîte de 6 personnes - 30€/pers</p>
+          <p>2 chambres : 2 et 4 personnes</p>
+          <small class="text-red-500 uppercase">Reste 6 places: 1 chambre (1 lit double), 1 chambre (1 lit double + 2 lits simples) </small>
+          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog('Le clos du botaniste')" /></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="col-12 md:col-5 flex align-items-center">
           <img class="border-round w-full" src="https://www.laubedumoulin.fr/wp-content/uploads/2018/04/galerie-exterieur-facade-principale-460x295.jpg" style="height: fit-content" />
         </div>
         <div class="col-12 md:col-7 flex-column flex gap-2">
           <p class="font-bold">L'Aube du moulin <small>(8 min en voiture)</small></p>
-          <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr/</a>
+          <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
           <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (2 lits simples) </small>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
           <small class="text-red-500 uppercase">Reste 8 places: 1 chambre (1 lit double + 2 simples), 1 chambre (4 lits simples) </small>
           <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
-          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog" /></div>
+          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog('L\'Aube du moulin')" /></div>
         </div>
       </div>
 
@@ -125,16 +140,10 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="visible" modal header="Réserver L'Aube du Moulin" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
+  <Dialog v-model:visible="visible" modal :header="`Réserver ${selectedForm}`" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
     <template #default>
       <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
       <LocationForm @submited="submit" :show-gite="true"></LocationForm>
-    </template>
-  </Dialog>
-  <Dialog v-model:visible="visible2" modal header="Réserver Gîte des Essarts" :style="{ width: '30vw' }" :breakpoints="{ '960px': '50vw', '641px': '70vw' }">
-    <template #default>
-      <Message severity="success" v-if="submitted" :sticky="false" :life="3000">Votre réponse a bien été enregistrée</Message>
-      <LocationForm @submited="submit"></LocationForm>
     </template>
   </Dialog>
 </template>
@@ -145,17 +154,15 @@ import { ref } from 'vue'
 import LocationForm from './LocationForm.vue'
 
 const visible = ref(false)
-const visible2 = ref(false)
 const submitted = ref(false)
+const selectedForm = ref('')
 
-const showDialog = () => {
+const showDialog = (name: string) => {
   submitted.value = false
   visible.value = true
+  selectedForm.value = name
 }
-const showDialog2 = () => {
-  submitted.value = false
-  visible2.value = true
-}
+
 function submit(values: any) {
   const id = values.name.toLowerCase() + values.firstname.toLowerCase()
   const apiUrl = `https://backend-wedding-default-rtdb.europe-west1.firebasedatabase.app/rsvp/hostel/${id}.json`
@@ -163,7 +170,7 @@ function submit(values: any) {
     firstname: values.firstname,
     name: values.name,
     nbPeople: values.nbPeople,
-    gite: values.gite ? values.gite : 'Les Essarts',
+    gite: `${selectedForm.value}:  ${values.gite}`,
     date: new Date()
   }
 
