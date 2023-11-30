@@ -64,10 +64,9 @@
           <p class="font-bold"><i class="pi pi-star-fill"></i> Nouveau</p>
           <p class="font-bold">Le clos du botaniste <small>(2 min à pied)</small></p>
           <a href="https://www.airbnb.fr/rooms/1010061113473015361">https://www.airbnb.fr</a>
-          <p>Gîte de 6 personnes - 30€/pers</p>
-          <p>2 chambres : 2 et 4 personnes</p>
-          <small class="text-red-500 uppercase">Reste 6 places: 1 chambre (1 lit double), 1 chambre (1 lit double + 2 lits simples) </small>
-          <div><Button label="Ça m'intéresse !" size="small" @click="showDialog('Le clos du botaniste')" /></div>
+          <p class="line-through">Gîte de 6 personnes - 30€/pers</p>
+          <p class="line-through">2 chambres : 2 et 4 personnes</p>
+          <p class="text-red-500 uppercase">complet</p>
         </div>
       </div>
 
@@ -81,8 +80,9 @@
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
           <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (2 lits simples) </small>
           <p>Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
-          <small class="text-red-500 uppercase">Reste 8 places: 1 chambre (1 lit double + 2 simples), 1 chambre (4 lits simples) </small>
+          <small class="text-red-500 uppercase">Reste 4 places: 1 chambre (4 lits simples) </small>
           <p>Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
+          <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (1 lit double) </small>
           <div><Button label="Ça m'intéresse !" size="small" @click="showDialog('L\'Aube du moulin')" /></div>
         </div>
       </div>
