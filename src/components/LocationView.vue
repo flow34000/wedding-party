@@ -78,7 +78,7 @@
           <p class="font-bold">L'Aube du moulin <small>(8 min en voiture)</small></p>
           <a href="https://www.laubedumoulin.fr/">https://www.laubedumoulin.fr</a>
           <p>Gîte le moulinois (7 pers, 3ch) - 30€/pers/nuit</p>
-          <small class="text-red-500 uppercase">Reste 2 places: 1 chambre (2 lits simples) </small>
+          <small class="text-blue-500 uppercase font-bold">Reste 2 places: 1 chambre (2 lits simples, assemblables en 1 lit double) </small>
           <p class="line-through">Gîte le minotier (12 pers, 4ch dont 2 de 4 couchages) - 30€/pers/nuit</p>
           <p class="text-red-500 uppercase">complet</p>
           <p class="line-through">Chambre d'hôtes l’aubière (2 pers, 1 ch) - 30€/pers/nuit</p>
