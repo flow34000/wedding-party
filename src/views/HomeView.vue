@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen grid grid-nogutter">
-    <div class="flex h-screen justify-content-center align-items-center md:fixed col-12 md:col-7 prevent-select">
-      <div :class="[currentSection, 'h-screen flex left-image absolute w-full']"></div>
+    <div class="flex left-section justify-content-center align-items-center md:fixed col-12 md:col-7 prevent-select">
+      <div :class="[currentSection, 'flex left-image absolute w-full']"></div>
       <div class="pannel-title gap-4">
         <p class="title text-center font-bold">Floriane & Florent</p>
         <p class="font-bold text-xl text-white">Enfin on va se dire OUUUIIII !!!</p>
@@ -66,10 +66,14 @@ onBeforeUnmount(() => {
   color: white;
 }
 
+.left-section {
+  height: 100svh;
+}
+
 .left-image {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100svh;
   transition: background-position 1s ease-in-out 0s;
 }
 
@@ -113,20 +117,18 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   padding: 10% 20% 11% 10%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.306) 13%,
-    rgba(0, 0, 0, 0.228) 26%,
-    rgba(0, 0, 0, 0.164) 37%,
-    rgba(0, 0, 0, 0.112) 48%,
-    rgba(0, 0, 0, 0.07) 59%,
-    rgba(0, 0, 0, 0.043) 68%,
-    rgba(0, 0, 0, 0.022) 77%,
-    rgba(0, 0, 0, 0.009) 85%,
-    rgba(0, 0, 0, 0.002) 92%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.306) 13%,
+      rgba(0, 0, 0, 0.228) 26%,
+      rgba(0, 0, 0, 0.164) 37%,
+      rgba(0, 0, 0, 0.112) 48%,
+      rgba(0, 0, 0, 0.07) 59%,
+      rgba(0, 0, 0, 0.043) 68%,
+      rgba(0, 0, 0, 0.022) 77%,
+      rgba(0, 0, 0, 0.009) 85%,
+      rgba(0, 0, 0, 0.002) 92%,
+      rgba(0, 0, 0, 0) 100%);
   width: 100%;
   height: 75%;
   justify-content: flex-end;
