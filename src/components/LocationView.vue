@@ -51,8 +51,7 @@
       <p>
         Il ne sera pas possible de dormir dans la salle du domaine, un gardien sera sur place et fermera à clé à 5h du matin. Nous vous
         recommandons de loger dans des gîtes dans les environs du domaine. Malheureusement peu d'entre eux sont accessibles à pied. Nous
-        avons identifié quelques gîtes et effectué deux pré-réservations. Un gîte de 21 couchages qui se trouve à 8 minutes en voiture. Et
-        un autre de 15 couchages qui se trouve à 3 minutes en voiture.
+        avons identifié quelques gîtes et effectué des pré-réservations dans les gîtes ci-dessous.
       </p>
       <p>Premier arrivé, premier servi!</p>
 
@@ -135,7 +134,6 @@
         au mariage. Merci de le préciser lorsque vous confirmerez votre présence.
       </p>
       <a class="text-center" href="#rsvp"><Button label="RSVP" icon="pi pi-send" raised rounded size="small" /></a>
-      <p>Note: les baby-sitters sont majeur(e)s, sous contrat et habitué(e)s des gardes de mariage.</p>
     </div>
   </div>
 
